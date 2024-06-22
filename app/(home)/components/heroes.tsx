@@ -16,10 +16,10 @@ export const Heroes = () => {
     <>
       <div className="max-w-3xl space-y-4">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-          Write, plan, share. With AI at your side.
+          Building a Better Work.
         </h1>
         <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-          Notion is the connected workspace where better, faster work happens.
+          Join us now to be the first to access exclusive prducts and updates!”
         </h3>
         {isLoading && (
           <div className="w-full flex justify-center items-center">
@@ -39,7 +39,7 @@ export const Heroes = () => {
           <>
             <SignInButton mode="modal">
               <Button>
-                Get Notion Free <ArrowRight className="h-4 w-4 ml-2" />
+                Sign up for Free <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </SignInButton>
           </>
