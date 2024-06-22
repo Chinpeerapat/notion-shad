@@ -21,6 +21,8 @@ const NavButton = React.memo<NavButtonProps>(({ children, ...props }) => (
   </Button>
 ));
 
+NavButton.displayName = "NavButton"; // Add this line to set the display name
+
 export const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
   const scrolled = useScrolled();
