@@ -3,7 +3,7 @@
 import React, { useMemo } from "react";
 import { Logo } from "./logo";
 import { ModeToggle } from "@/components/shared/mode-toggle";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
@@ -11,7 +11,11 @@ import Link from "next/link";
 import { Loader } from "@/components/ui/loader";
 import { useScrolled } from "@/hooks/use-scrolled";
 
-const NavButton = React.memo(({ children, ...props }) => (
+interface NavButtonProps extends ButtonProps {
+  children: React.ReactNode;
+}
+
+const NavButton = React.memo<NavButtonProps>(({ children, ...props }) => (
   <Button size="sm" {...props}>
     {children}
   </Button>

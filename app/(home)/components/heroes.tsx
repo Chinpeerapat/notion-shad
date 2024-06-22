@@ -13,14 +13,18 @@ export const Heroes = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
-    <>
-      <div className="max-w-3xl space-y-4">
+    <main className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between">
+      <section className="max-w-3xl space-y-6 md:w-1/2">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-          Building a Better Work.
+          Building a Better Work Environment
         </h1>
-        <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-          Join us now to be the first to access exclusive prducts and updates!”
-        </h3>
+        <p className="text-base sm:text-xl md:text-2xl font-medium">
+          Join us now to be the first to access exclusive products and updates!
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Revolutionize your workflow with our cutting-edge tools and solutions.
+        </p>
+
         {isLoading && (
           <div className="w-full flex justify-center items-center">
             <Loader />
@@ -29,41 +33,39 @@ export const Heroes = () => {
 
         {isAuthenticated && !isLoading && (
           <Button asChild>
-            <Link href={"/documents"}>
-              Enter notion <ArrowRight className="h-4 w-4 ml-2" />
+            <Link href="/documents" aria-label="View our products">
+              Our Products <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
           </Button>
         )}
 
         {!isAuthenticated && !isLoading && (
-          <>
-            <SignInButton mode="modal">
-              <Button>
-                Sign up for Free <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
-            </SignInButton>
-          </>
+          <SignInButton mode="modal">
+            <Button aria-label="Sign up for free">
+              Sign up for Free <ArrowRight className="h-4 w-4 ml-2" />
+            </Button>
+          </SignInButton>
         )}
-      </div>
+      </section>
 
-      <div className="flex flex-col items-center justify-center max-w-5xl">
-        <div className="flex items-center">
-          <div className="relative h-[400px] w-[400px] hidden md:block">
-            <Image
-              src={"/men.svg"}
-              alt="Logo"
-              fill
-              className="object-cover dark:hidden"
-            />
-            <Image
-              src={"/men-dark.svg"}
-              alt="Logo"
-              fill
-              className="object-cover hidden dark:block"
-            />
-          </div>
+      <section className="md:w-1/2 mt-8 md:mt-0">
+        <div className="relative h-[300px] w-[300px] md:h-[400px] md:w-[400px]">
+          <Image
+            src="/men.svg"
+            alt="Illustration of people working"
+            fill
+            className="object-cover dark:hidden"
+            priority
+          />
+          <Image
+            src="/men-dark.svg"
+            alt="Illustration of people working"
+            fill
+            className="object-cover hidden dark:block"
+            priority
+          />
         </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 };
