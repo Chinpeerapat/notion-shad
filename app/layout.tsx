@@ -10,9 +10,9 @@ import { EdgeStoreProvider } from "@/lib/edgestore";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Notion",
+  title: "WorkWhales",
   description:
-    "A new tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team",
+    "build a better work",
   icons: {
     icon: "/logo.svg",
   },

@@ -39,6 +39,26 @@ body,
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    /* Text sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+
+    /* Font weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
   }
 
   .dark {
@@ -70,13 +90,96 @@ body,
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
-}
 
-@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   * {
     @apply border-border;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   }
+
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+  }
+
+  :focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-5xl));
+  }
+
+  h2 {
+    font-size: clamp(var(--text-xl), 4vw, var(--text-4xl));
+  }
+
+  h3 {
+    font-size: clamp(var(--text-lg), 3vw, var(--text-3xl));
+  }
+
+  p,
+  li,
+  a {
+    font-size: clamp(var(--text-base), 2vw, var(--text-lg));
+  }
+
+  small {
+    font-size: var(--text-sm);
+  }
+
+  /* Font weights */
+  .font-light {
+    font-weight: var(--font-light);
+  }
+
+  .font-normal {
+    font-weight: var(--font-normal);
+  }
+
+  .font-medium {
+    font-weight: var(--font-medium);
+  }
+
+  .font-semibold {
+    font-weight: var(--font-semibold);
+  }
+
+  .font-bold {
+    font-weight: var(--font-bold);
   }
 }
